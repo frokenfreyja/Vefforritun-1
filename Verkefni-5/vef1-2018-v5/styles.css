@@ -37,6 +37,7 @@ p {
 }
 
 .card {
+  display: inline-flex;
   background: #fff;
   border: 2px #aaa;
   border-radius: 5px;
