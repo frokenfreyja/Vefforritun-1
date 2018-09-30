@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 28px; 
+}
+body {
+  background-color: #333;
+  color: #ddd;
+}
+
+/* Fyrirsagnir í haus með letrið IM Fell DW Pica og hámarksbreidd texta 1120 px */
+h1, h2, h2 + p{
+  font-family: 'IM Fell DW Pica', serif;
+  text-align: center;
+  color: #333; 
+
+  max-width: 1120px;
+  margin: 0 auto; 
+}
+
+/* Haus og "haus" í fæti */
+/* Fylla út í viewport og vera með fasta mynd */
+header {
+  width: 100%;
+  height: 100vh;
+  background: transparent url(img/trees.jpg) no-repeat fixed center;
+  background-size: cover;
+}
+/* Textastærð og bil fyrir ofan titil skal vera 20% af viewport hæð */
+header h1 { 
+  padding-top: 20vh;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 10vmin; 
+}
+/* Textastærð og bil á milli h1 og h2 í haus */
+.protection h2 {
+  padding-top: 1vh;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 6vmin;
+}
+/* Textastærð og bil á milli texta og h2 í haus og "haus" í fæti */
+header p {
+  padding-top: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 4vmin;
+  font-weight: bold;
+}
+/* Bil og textastærð á letri á h2 í "haus" í fæti */
+.postscript h2 {
+  padding-top: 20vh;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 7vmin;
+}
+/* 80% gegnsætt protection á hausana tvo */
+.protection, .postscript {
+  width: 100%;
+  height: 100vh;
+  background-color:rgba(255, 255, 255, 0.2);
+}
+/* Setja texta sem hástafi samkvæmt forskrift */
+h2 + p, cite, .postscript h2 {
+  text-transform: uppercase;
+}
+
+/* Meginmál */
+section {
+  font-family: 'Merriweather', serif;
+  font-size: 1em;
+  line-height: 2;
+  
+  max-width: 50em;
+  margin: auto;
+  padding: 2em;
+}
+/* Texti í tilvísun er skáletraður en vitnun ekki */
+blockquote {
+  font-style: italic;
+  font-weight: 400;
+  text-align: right;
+  padding-right: 1em;
+  padding-bottom: 2em;
+} 
+cite { 
+  font-style: normal; 
+}
+/* Bil á milli efnisgreina */
+p {
+  padding: 1em;
+}
+/* Inndráttur í fyrstu línu */
+section p + p {
+  text-indent: 2em;
+}
+/* Fyrsti stafur í fyrstu málsgrein á eftir mynd skal stækkaður upp í að fara yfir þrjú línubil og vera feitletraður */
+section p:first-of-type::first-letter {
+  font: bold 6em/1em 'Merriweather', serif;
+  float: left;
+  padding-right: 0.1em;
+}
+/* Myndir í <hr> bilum */
+hr:nth-of-type(1) {
+  width: 100%;
+  height: 60vh;
+  background: transparent url(img/tree-fog.jpg) no-repeat fixed center;
+  background-size: cover;
+  border-style: none;
+}
+hr:nth-of-type(2) {
+  width: 100%;
+  height: 60vh;
+  background: transparent url(img/castle.jpg) no-repeat fixed center;
+  background-size: cover;
+  border-style: none;
+}
+hr:nth-of-type(3) {
+  width: 100%;
+  height: 60vh;
+  background: transparent url(img/hands.jpg) no-repeat fixed center;
+  background-size: cover;
+  border-style: none;
+}
+hr:nth-of-type(4) {
+  width: 100%;
+  height: 60vh;
+  background: transparent url(img/moon.jpg) no-repeat fixed center;
+  background-size: cover;
+  border-style: none;
+}
+
+/* Fótur */
+footer {
+  width: 100%;
+  background-color: #ddd;
+  color: #333;
+  background-size: cover;
+
+  font-family: 'Merriweather', serif;
+  font-size: 1em;
+  line-height: 2;
+  text-align: left;
+  margin: 0 auto;
+}
+/* Bil í fyrstu línu */
+footer p {
+  max-width: 1400px; 
+  margin: 0 auto;
+  padding: 1em 2em 0em 3.3em;
+}
+/* Bil í annarri línu */
+footer p + p {
+  padding: 0em 0em 0em 3.3em;
+}
+/* Breyta um lit og taka af undirstrikunina af fyrsta linknum */
+p a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* Losna við listaformið */
+ul {
+  max-width: 1400px;
+  margin: 0 auto;
+  list-style: none;
+  line-height: 1.3;
+  padding-bottom: 1.5em;
+}
+/* Breyta um lit og taka af undirstrikunina í seinni linkum */
+li a {
+  padding: 0em 0em 0em 3.3em;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}

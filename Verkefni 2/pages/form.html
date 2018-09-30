@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8">
+    <title>Form</title>
+  </head>
+  <body>
+    <h1>Form</h1>
+    <form method="get" action=".">
+
+      <fieldset>
+        <legend>Notandi</legend>
+        <div>
+          <label for="name">Notandanafn:</label>
+          <input type="text" name="name" id="name" required>
+        	</div>
+        <div class="field">
+          <label for="email">Netfang:</label>
+          <input type="email" name="email" id="email" required>
+        	</div>
+        <div class="field">
+          <label for="password">Lykilorð:</label>
+          <input type="password" name="password" id="password" required>
+          </div>
+        <div class="field">
+          <label for="password2">Lykilorð aftur:</label>
+          <input type="password" name="password2" id="password2" required>
+          <label>Lykilorð verða að vera eins</label>
+        	</div>
+      </fieldset>
+
+      <fieldset>
+				<legend>Spurningar</legend>
+				<div>
+		  		<label><br>Kyn:<br><br></label>
+					</div>
+				<div>
+          <label><input name="gender" type="radio" value="kvk">Kona</label>
+          <label><input name="gender" type="radio" value="kk">Karl</label>
+          <label><input name="gender" type="radio" value="other">Annað</label>
+					</div>
+				<div>
+					<label for="age">Aldur:</label>
+					<select name="age" id="age">
+						<option>-Vinsamlegast veljið-</option>
+						<option>Yngri en 13 ára</option>
+						<option>13-20 ára</option>
+						<option>21-65 ára</option>
+						<option>Eldri en 65 ára</option>
+					</select>
+					</div>
+			<div>
+				<input type="checkbox" name="copy" id="copy" checked>
+				<label for="copy">Senda afrit af notandaupplýsingum á netfang.</label>
+				</div>
+			<div>
+				<label for="comment">Athugasemdir</label>
+				<textarea name="comment" id="comment"></textarea>
+				</div>
+			</fieldset>
+      <div>
+        <input type="submit" value="Senda">
+      </div>
+		</form>
+		<hr>
+		<nav>
+				<ul>
+					<li><a href="../index.html">Forsíða</a></li>
+					<li><a href="form.html"><strong>Form</strong></a></li>
+					<li><a href="table.html">Tafla</a></li>
+					<li><a href="text.html">Texti</a></li>
+				</ul>
+			</nav>
+  </body>
+</html>

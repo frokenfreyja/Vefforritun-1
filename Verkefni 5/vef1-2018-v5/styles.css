@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+main {
+  display: inline-flex;
+  margin: 0 auto;
+  max-width: 1500px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.cards {
+  background: #eee;
+  justify-content: space-around;
+}
+
+.card {
+  background: #fff;
+  border: 2px #aaa;
+  border-radius: 5px;
+
+  max-width: 29.375em;
+  max-height: 18.75em;
+  margin-bottom: 10px;
+}
