@@ -15,7 +15,6 @@ html {
 }
 
 main {
-  display: inline-flex;
   margin: 0 auto;
   max-width: 1500px;
   padding: 20px;
@@ -30,19 +29,30 @@ p {
   font-size: 16px;
   line-height: 22px;
 }
-
+h2 + div {
+  display: flex;
+}
 .cards {
-  background: #eee;
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: #eee;
   justify-content: space-around;
 }
 
 .card {
-  display: inline-flex;
+  display: flex;
+
   background: #fff;
-  border: 2px #aaa;
+  border: 2px solid #aaa;
   border-radius: 5px;
 
-  max-width: 29.375em;
-  max-height: 18.75em;
+  max-width: 470px;
+  max-height: 300px;
+  width: 100%;
   margin-bottom: 10px;
+}
+
+ul{
+  display: flex;
 }
