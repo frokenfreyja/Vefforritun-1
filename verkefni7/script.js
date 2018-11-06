@@ -6,6 +6,7 @@
 
 // fasti sem segir til um hve marga leiki eigi að spila
 const GAMES_TO_PLAY = 10;
+let rettSvor = 0;
 
 /**
  * Birtir upplýsingar um leik og eftir að notandi samþykkir spilar fyrsta leik
@@ -18,8 +19,6 @@ function start() {
   do {
     play();
   } while (confirm('Spila annan leik?'));
-
-  alert(getResults());
 }
 
 /**
@@ -34,10 +33,32 @@ function start() {
  *
  */
 function play() {
-  let a = new Date();
-  ask();
-  let b = new Date();
-  alert('Tíminn sem tók fyrir þig að svara öllum 10 dæmunum: '+(b-a);
+  let status;
+  let date = new Date;
+  let time1 = date.getTime();
+  let rettSvor = 0;
+
+  for (let i = 0; i < GAMES_TO_PLAY; i++) {
+      status = ask();
+      if (status) {
+        rettSvor++;
+      }
+      if (status == null) {
+          alert('Hætt í leik.');
+          break;
+      }
+  }
+  if (status != null) {
+      date = new Date;
+      let time2 = date.getTime();
+      let totalTime = (time2 - time1)/1000;
+      let medal = rettSvor/totalTime;
+      totalTime = totalTime.toFixed(2);
+      medal = medal.toFixed(2);
+
+      alert('Þú svaraðir ' + rettSvor + ' af 10 dæmum rétt á ' + totalTime + ' sekúndum.\n'
+              + 'Meðalrétt svör á sekúndu eru ' + medal);
+  }
 }
 
 /**
@@ -55,35 +76,60 @@ function play() {
  * Sniðugt væri að færa það að búa til spurningu í nýtt fall sem ask() kallar í.
  */
 function ask() {
-  let attempts = 0;
-  let rand1 = randomNumber(1, 100);
-  let rand2 = randomNumber(1,100);
+    let spurning = spurningar();
+    var input = prompt(spurning[0]);
 
-  do {
-    const input = prompt('Hvað er '+rand1.toString()+'+'+rand2.toString()+'?');
-    if (input === null) {
-      break;
+    if (input == null) {
+        return null;
     }
-    const parsedInput = parseGuess(input);
-    correct = parsedInput === addProblem(rand1,rand2);
-    alert(getResponse(parsedInput, addProblem(rand1,rand2)));
-    attempts++;
-  } while (attempts != 10);
-
-  return true;
+    var parsed = parseInt(input, 10);
+    if (isNaN(parsed)) {
+        return false;
+    } else if (parsed == spurning[1]) {
+        return true;
+    } else return false;
 }
 
-function addProblem(randomNum1, randomNum2) {
-  return (randomNum1+randomNum2);
-}
-function minusProblem(randomNum1, randomNum2) {
-  return (randomNum1-randomNum2);
-}
-function multiplyProblem(randomNum1, randomNum2) {
-  return (randomNum1*randomNum2);
-}
-function divideProblem(randomNum1, randomNum2) {
-  return (randomNum1/randomNum2);
+/**
+ * Fall sem býr til random spurningar
+ */
+function spurningar() {
+  let spurning;
+  let svar;
+  let sign = randomNumber(0,3)
+  let tala1 = 0;
+  let tala2 = 0;
+
+  switch(sign) {
+      case 0:
+          tala1 = randomNumber(1,100);
+          tala2 = randomNumber(1,100);
+          spurning = 'Hvað er ' + tala1 + ' + ' + tala2 + '?';
+          svar = tala1 + tala2;
+          break;
+      case 1:
+          tala1 = randomNumber(1,100);
+          tala2 = randomNumber(1,100);
+          spurning = 'Hvað er ' + tala1 + ' - ' + tala2 + '?';
+          svar = tala1 - tala2;
+          break;
+      case 2:
+          tala1 = randomNumber(1,10);
+          tala2 = randomNumber(1,10);
+          spurning = 'Hvað er ' + tala1 + ' * ' + tala2 + '?';
+          svar = tala1 * tala2;
+          break;
+      case 3:
+          tala1 = randomNumber(2,10);
+          tala2 = (tala1 * randomNumber(2,10));
+          spurning = 'Hvað er ' + tala2 + ' / ' + tala1 + '?';
+          svar = tala2 / tala1;
+          break;
+      default:
+          spurning = "villa";
+  }
+  return [spurning, svar];
+
 }
 
 /**
